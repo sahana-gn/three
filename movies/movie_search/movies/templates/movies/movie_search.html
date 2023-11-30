@@ -1,0 +1,82 @@
+<!-- movies/templates/movies/movie_search.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+
+<body>
+    <!-- movies/templates/movies/movie_search.html -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        
+    </style>
+
+    <h1>Movie Search</h1>
+    <form method="post" action="{% url 'search_movie' %}">
+        {% csrf_token %}
+        <label for="search_query">Search for a movie:</label>
+        <input type="text" name="search_query" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+
+</html>
